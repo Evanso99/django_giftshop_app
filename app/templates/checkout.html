@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkout</title>
+    <link href="/static/css/checkout.css" rel="stylesheet" type="text/css">
+  </head>
+<body>
+  <h1>Checkout</h1>
+  <form method="POST" action="{% url 'payment' %}">
+    {% csrf_token %}
+    <h2>Shipping Details</h2>
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address"><br>
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city"><br>
+    <label for="state">State:</label>
+    <input type="text" id="state" name="state"><br>
+    <label for="zipcode">Zip Code:</label>
+    <input type="text" id="zipcode" name="zipcode"><br><br>
+    
+    <h2>Order Summary</h2>
+    {% for cartitem in cartitems %}
+      <p>{{ cartitem.product.name }} - {{ cartitem.quantity }} x ${{ cartitem.product.price }} = ${{ cartitem.get_total }}</p>
+    {% endfor %}
+    <p>Total: ${{ cart.get_cart_total }}</p>
+  
+    <input type="submit" value="Pay with PayPal">
+  </form>
+
+  </body>
+</html>

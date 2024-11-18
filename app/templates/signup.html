@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link href="{% static 'css/signup.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'js/signup.js' %}"></script> 
+</head>
+<body>
+  <section>
+    <h2>Sign up</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Sign up</button>
+        <p>Already have an account? <a href="{% url 'login' %}">Login</a></p> 
+    </form>
+  </section>
+</body>
+</html>
+
+
+

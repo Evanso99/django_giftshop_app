@@ -1,0 +1,79 @@
+/* Style for entire page */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  /* Style for container */
+  .container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 auto;
+  }
+  
+  /* Style for table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* Style for table header */
+  thead {
+    background-color: #f1f1f1;
+  }
+  
+  /* Style for table header cells */
+  th {
+    text-align: left;
+    padding: 10px;
+  }
+  
+  /* Style for table body cells */
+  td {
+    padding: 10px;
+  }
+  
+  /* Style for quantity input */
+  .quantity {
+    border: none;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  /* Style for continue shopping and checkout buttons */
+  .btn {
+    color: whitesmoke;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #007bff;
+    cursor:grab
+    
+  }
+
+  .btn:hover{
+    background-color: lightgreen;
+  }
+  
+  
+  /* Style for cart image */
+  #cart_image img {
+    max-width: 100px;
+    border-radius: 5px;
+  }
+  
+  /* Style for item name */
+  h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  /* Style for item price and total */
+  strong {
+    font-weight: normal;
+  }
+  

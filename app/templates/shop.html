@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/static/css/shop.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <header>
+    <ul class ="shop">
+      <li class="s"><b>SHOP!</b></li>
+      <li class="s1"></li>
+      <li class="s2">Gift Shop</li>
+    </ul>
+
+<nav>
+  <ul>
+    <li><a href="{% url 'home' %}">HOME</a></li>
+    <li>{% if user.is_authenticated %}
+      <a href="{% url 'logout_view' %}">LOGOUT</a>
+  {% endif %}
+  </li>
+    <li><a href="{% url 'shop' %}">SHOP</a></li>
+  </ul>
+</nav>
+    <ul class="a_c">
+        <li class="account"><a href="{% url 'account' %}"><img src="{%static 'images/profile.jpg'%}">   Account</a></li>
+        <li class="cart"><a href="{% url 'cart'%}"><img src="{%static 'images/cart.jpg'%}">   Cart</a></li>
+    </ul> 
+</header>
+<hr class="dashed">
+<a href="{% url 'home' %}" class="acute"><img src="{%static 'images/acute.jpg'%}" alt="HTML tutorial"></a> 
+<div class="search-frame">
+<form method="GET" action="{% url 'search' %}">
+  <input type="text" name="q" placeholder="Search for a product...">
+  <button type="submit">Search</button>
+</form>
+
+  
+</div>
+<section id="shopping-products">
+
+{% for product in products %}
+<div class="shop_product">
+    <img src="{{ product.image.url }}" >
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.description }}</p>
+    <p>${{ product.price }}</p>
+    <form method="post" action="{% url 'add_to_cart' product_id=product.id %}">
+      {% csrf_token %}
+      <input type="submit" value="Add to Cart">
+    </form>
+    
+</div>
+{% endfor %}
+
+</section>
+</body>
+</html>

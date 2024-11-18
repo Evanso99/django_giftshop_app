@@ -1,0 +1,48 @@
+body{
+  background-color: #615858; 
+  background-image: url('/static/images/background.jpg');
+  
+  background-size: cover;
+  background-clip: content-box;
+  background-repeat: no-repeat;
+ 
+}
+
+h1{
+    color: aliceblue;
+    padding-top: 9rem;
+    padding-left: 13rem;
+    font-size: xx-large;
+    font-family: cursive;
+}
+
+.buttonlink{
+    margin-top: 5rem;
+    margin-left: 15rem;
+    display: inline-flex;
+}
+
+.login{
+    padding-left: 5rem;
+}
+.button{
+    background-color: rgb(170, 168, 21);
+    border-radius: 5px;
+    border: none;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+
+.loginbutton{
+    background-color: rgb(170, 168, 21);
+    border-radius: 5px;
+    border: none;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+

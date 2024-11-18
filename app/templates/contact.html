@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Us</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+
+		form {
+			display: grid;
+			grid-gap: 20px;
+		}
+
+		label {
+			display: block;
+			font-weight: bold;
+			margin-bottom: 5px;
+		}
+
+		input, textarea {
+			width: 100%;
+			padding: 10px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			font-size: 16px;
+		}
+
+		button {
+			padding: 10px 20px;
+			background-color: #4CAF50;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background-color: #3e8e41;
+		}
+
+		.success {
+			background-color: #D4EDDA;
+			color: #155724;
+			border: 1px solid #C3E6CB;
+			padding: 10px;
+			margin-top: 20px;
+			border-radius: 5px;
+		}
+
+		.error {
+			background-color: #F8D7DA;
+			color: #721C24;
+			border: 1px solid #F5C6CB;
+			padding: 10px;
+			margin-top: 20px;
+			border-radius: 5px;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Contact Us</h1>
+		<p>We'd love to hear from you! If you have any questions, feedback, or concerns, please don't hesitate to get in touch.</p>
+
+		{% if success %}
+			<div class="success">
+				Thank you for contacting us! We'll get back to you as soon as possible.
+			</div>
+		{% elif errors %}
+			<div class="error">
+				{% for error in errors %}
+					{{ error }}<br>
+				{% endfor %}
+			</div>
+		{% else %}
+			<div class="contact-form">
+				<form method="post">
+					{% csrf_token %}
+					<div>
+						<label for="name">Name:</label>
+						<input type="text" id="name" name="name" required>
+					</div>
+					<div>
+						<label for="email">Email:</label>
+						<input type="email" id="email" name="email" required>
+					</div>
+					<div>
+						<label for="subject">Subject:</label>
+						<input type="text" id="subject" name="subject" required>
+					</div>
+					<div>
+						<label for="message">Message:</label>
+						<textarea id="message" name="message" rows="5" required></textarea>
+					</div>
+					<button type="submit">Send</button>
+				</form>
+			</div>
+		{% endif %}
+	</div>
+	
+</body>
+</html>
